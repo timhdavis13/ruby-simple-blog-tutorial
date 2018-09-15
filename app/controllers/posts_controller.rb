@@ -29,6 +29,23 @@ def create
     
 end
 
+def edit
+    # Create the 'post' instance variable that the view will use:
+    @post = Post.find(params[:id]);
+end
+
+def update
+    # Create the 'post' instance variable that the view will use:
+    @post = Post.find(params[:id]);
+
+    # Save the new Post in the DB and redirect to the show view for this Post:
+    if(@post.update(post_params))
+        redirect_to @post;
+    else
+        render 'edit'
+    end
+end
+
 # Private methods:
 
 private def post_params
