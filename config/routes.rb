@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about', as: 'about'
 
   # Define Resources: Maps HTTP verbs to controller actions:
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 
 end
