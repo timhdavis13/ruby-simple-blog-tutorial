@@ -11,34 +11,10 @@
 
 <hr>
 
-<h3>Comments</h3>
-
-<% @post.comments.each do |comment| %>
-    <div class="well">
-        <p>
-            <strong><%= comment.username %></strong>: <%= comment.body %>
-        </p>
-    </div>
-<% end %>
+<%# links to 'views/comments/_comments.html.erb' file (a partial view): %>
+<%= render 'comments/comments' %>
 
 <hr>
 
-<h3>Add Comment</h3>
-
-<%= form_for([@post, @post.comments.build]) do |form| %>
-
-    <p>
-        <%= form.label :username %><br>
-        <%= form.text_field(:username, {:class => 'form-control'}) %>
-    </p>
-
-    <p>
-        <%= form.label :body %><br>
-        <%= form.text_area(:body, {:class => 'form-control'}) %>
-    </p>
-
-    <p>
-        <%= form.submit({:class => 'btn btn-default'}) %>
-    </p>
-
-<% end %>
+<%# links to 'views/comments/_form.html.erb' file (a partial view): %>
+<%= render 'comments/form' %>
